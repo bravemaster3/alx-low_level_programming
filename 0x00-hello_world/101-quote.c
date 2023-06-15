@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 /**
 *main - Entry point
 *This uses a non-common fonction to write to the stderr
