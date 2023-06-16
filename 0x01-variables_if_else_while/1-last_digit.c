@@ -25,6 +25,6 @@ int main(void)
 		strcpy(compl, "and is 0\n");
 	else
 		strcpy(compl, "and is less than 6 and not 0\n");
-	printf("Last digit of %d is %d and %s", n, last, compl);
+	printf("Last digit of %d is %d %s", n, last, compl);
 	return (0);
 }
