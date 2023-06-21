@@ -3,10 +3,10 @@
 /**
 * main - Entry point, print first 50 fibonacci
 *
-* Return: no return
+* Return: 0
 */
 
-void main(void)
+int main(void)
 {
 	int i, n1 = 1, n2 = 2, n3;
 
@@ -22,4 +22,5 @@ void main(void)
 		n2 = n3;
 	}
 	printf("\n");
+	return (0);
 }
