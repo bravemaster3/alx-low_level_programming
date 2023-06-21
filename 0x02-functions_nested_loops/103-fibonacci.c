@@ -8,8 +8,7 @@
 
 int main(void)
 {
-	int i = 3;
-	long int n1 = 1, n2 = 2, n3;
+	long int n1 = 1, n2 = 2, n3, sum = 2;
 
 	printf("%ld, ", n1);
 	while (n3 <= 4000000)
@@ -17,10 +16,7 @@ int main(void)
 		n3 = n1 + n2;
 		if (n3 % 2 == 0)
 		{
-			if (i == 50)
-				printf("%ld", n3);
-			else
-				printf("%ld, ", n3);
+			sum += n3;
 		}
 		n1 = n2;
 		n2 = n3;
