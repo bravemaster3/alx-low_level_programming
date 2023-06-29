@@ -5,7 +5,8 @@
  * @s1: pointer to first string
  * @s2: pointer to the second string
  * Return: 0 if the strings are the same,
- * the difference between the first different digits if the 2 strings are different
+ * the difference between the first different digits
+ * if the 2 strings are different
  */
 
 int _strcmp(char *s1, char *s2)
