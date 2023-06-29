@@ -21,10 +21,12 @@ char *cap_string(char *str)
 			str[i - 1] == ')' || str[i - 1] == '{' ||
 			str[i - 1] == '}')
 		{
-			if (str[i] >= 97 && str[i] <= 122)
-				str[i] = str[i] - 32;
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] = str[i] - ('a' - 'A');
 		}
 		i++;
 	}
+	if (str[0] >= 'a' && str[0] <= 'z')
+		str[0] = str[0] - ('a' - 'A');
 	return (str);
 }
