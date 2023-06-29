@@ -9,16 +9,14 @@
 
 void reverse_array(int *a, int n)
 {
-	int a_c[n];
-	int i;
+	int copy, i = 0, j = n - 1;
 
-	for (i = 0; i < n; i++)
+	while (j >= 0 && i < j)
 	{
-		a_c[i] = a[i];
-	}
-
-	for (i = 0; i < n; i++)
-	{
-		a[i] = a_c[n - 1 - i];
+		copy = a[i];
+		a[i] = a[j];
+		a[j] = copy;
+		i++;
+		j--;
 	}
 }
