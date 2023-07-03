@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- *
- *
- *
- *
+ * _strpbrk - locates the occurence of a char of string
+ *  accept in string s
+ * @s: pointer to string where to find the char
+ * @accept: pointer to string containing chars to find
+ * Return: the pointer to the first occurence of char in s
  */
 
 char *_strpbrk(char *s, char *accept)
