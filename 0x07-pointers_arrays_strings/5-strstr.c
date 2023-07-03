@@ -14,13 +14,13 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i, j, counter;
 	char *s1 = '\0';
+
 	printf("LENGTH of needle: %i\n", _strlen(needle));
 
 	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
 		if (*(haystack + i) == *needle)
 		{
-			/*match = 1;*/
 			counter = 0;
 			for (j = 0; *(needle + j) != '\0' &&
 						*(needle + j) == *(haystack + i + j) &&
@@ -52,12 +52,6 @@ char *_strstr(char *haystack, char *needle)
 		}
 		printf("current S1: %p\n", s1);
 		printf("Current i is:%d\n", i);
-		/**
-		else
-		{
-			match = 0;
-		}
-		*/
 	}
 	goto end;
 end:
