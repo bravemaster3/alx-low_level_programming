@@ -36,8 +36,6 @@ char *_strstr(char *haystack, char *needle)
 					s1 = haystack + i;
 					goto end;
 				}
-				else
-					s1 = '\0';
 			}
 		}
 	}
