@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _strstr - locates substring needle in haystack
@@ -14,25 +13,19 @@ char *_strstr(char *haystack, char *needle)
 
 	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
-		if (*(haystack + i) == *needle)
+		if (*(haystack + i) == *needle && *needle != '\0')
 		{
 			counter = 0;
 			for (j = 0; *(needle + j) && *(haystack + i + j);
 				 j++)
 			{
 				if (*(haystack + i + j) == *(needle + j))
-				{
 					counter += 1;
-				}
 				else
-				{
 					counter = 0;
-				}
 
 				if (counter == _strlen(needle))
-				{
 					return (haystack + i);
-				}
 			}
 		}
 	}
