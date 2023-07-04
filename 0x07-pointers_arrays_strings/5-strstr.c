@@ -34,7 +34,7 @@ char *_strstr(char *haystack, char *needle)
 		}
 	}
 	printf("needle not found!\n");
-	return ("NULL");
+	return ('\0');
 }
 
 /**
