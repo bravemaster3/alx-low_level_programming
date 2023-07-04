@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strstr - locates substring needle in haystack
@@ -25,11 +26,15 @@ char *_strstr(char *haystack, char *needle)
 					counter = 0;
 
 				if (counter == _strlen(needle))
+				{
+					printf("needle found\n");
 					return (haystack + i);
+				}
 			}
 		}
 	}
-	return (0);
+	printf("needle not found!\n");
+	return ("NULL");
 }
 
 /**
