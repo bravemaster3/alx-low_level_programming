@@ -27,14 +27,12 @@ char *_strstr(char *haystack, char *needle)
 
 				if (counter == _strlen(needle))
 				{
-					printf("needle found\n");
 					return (haystack + i);
 				}
 			}
 		}
 	}
-	printf("needle not found!\n");
-	return ('\0');
+	return ("NULL");
 }
 
 /**
