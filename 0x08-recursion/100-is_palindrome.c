@@ -1,8 +1,10 @@
 #include "main.h"
 
 /**
- * is_palindrome -
- * */
+ * is_palindrome - checks if a string is a palindrome
+ * @s: pointer to the string
+ * Return: 1 if palindrome, 0 otherwise
+ */
 
 int is_palindrome(char *s)
 {
