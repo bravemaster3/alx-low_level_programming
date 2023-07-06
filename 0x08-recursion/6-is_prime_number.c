@@ -23,12 +23,12 @@ int is_prime_number_helper(int n, int m)
 {
 	if (m == n)
 	{
-		return (0);
+		return (1);
 	}
 
-	if (n / m)
+	if (n % m == 0)
 	{
-		return (1);
+		return (0);
 	}
 
 	return (is_prime_number_helper(n, m + 1));
