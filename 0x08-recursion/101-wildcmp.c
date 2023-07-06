@@ -28,7 +28,7 @@ char *wildcmp_asterisk(char *s1, char *s2)
 }
 
 /**
- * wildcmp - compares two strings
+ * wildcmp - compares two strings..
  * @s1: pointer to the first string
  * @s2: pointer to second string
  * Return: an integer
