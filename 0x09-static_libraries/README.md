@@ -24,4 +24,10 @@ You can then use all the other options you want. See an example below
 ```
 gcc -std=gnu89 main.c -L. -lmy -o quote
 ```
+6. A bash script is also a quick option for creating the static library. create a file and paste something like this inside
+```
+#!/bin/bash
+gcc -c -Wall -Werror -Wextra -pedantic -c *.c
+ar -rc liball.a *.o
+```
 
