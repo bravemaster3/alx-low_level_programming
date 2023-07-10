@@ -39,8 +39,8 @@ char *str_concat(char *s1, char *s2)
 	else
 		s2_cpy = s2;
 
-	len1 = _strlen_recursion(s1);
-	len2 = _strlen_recursion(s2);
+	len1 = _strlen_recursion(s1_cpy);
+	len2 = _strlen_recursion(s2_cpy);
 
 	concat = malloc(sizeof(*s1_cpy) * (len1 + len2 + 1));
 
