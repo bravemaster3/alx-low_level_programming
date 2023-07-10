@@ -26,10 +26,12 @@ int _strlen_recursion(char *s)
 char *_strdup(char *str)
 {
 	char *str_cpy;
-	int len = _strlen_recursion(str) + 1, i;
+	int len, i;
 
 	if (str == NULL)
 		return (NULL);
+
+	len = _strlen_recursion(str) + 1;
 
 	str_cpy = malloc(sizeof(*str_cpy) * len);
 	for (i = 0; i < len; i++)
