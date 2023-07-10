@@ -30,5 +30,5 @@ int **alloc_grid(int width, int height)
 		}
 	}
 
-	return (*arr_2D);
+	return (arr_2D);
 }
