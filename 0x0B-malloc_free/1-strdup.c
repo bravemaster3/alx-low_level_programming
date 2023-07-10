@@ -26,7 +26,7 @@ int _strlen_recursion(char *s)
 char *_strdup(char *str)
 {
 	char *str_cpy;
-	int len = _strlen_recursion(str), i;
+	int len = _strlen_recursion(str) + 1, i;
 
 	if (str == NULL)
 		return (NULL);
