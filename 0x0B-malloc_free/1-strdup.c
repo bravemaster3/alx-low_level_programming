@@ -34,11 +34,12 @@ char *_strdup(char *str)
 	len = _strlen_recursion(str) + 1;
 
 	str_cpy = malloc(sizeof(*str_cpy) * len);
-	for (i = 0; i < len; i++)
-		str_cpy[i] = str[i];
 
 	if (str_cpy == NULL)
 		return (NULL);
+
+	for (i = 0; i < len; i++)
+		str_cpy[i] = str[i];
 
 	return (str_cpy);
 }
