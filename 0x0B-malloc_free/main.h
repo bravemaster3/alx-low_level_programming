@@ -3,5 +3,7 @@
 
 int _putchar(char c);
 char *create_array(unsigned int size, char c);
+int _strlen_recursion(char *s);
+char *_strdup(char *str);
 
 #endif
