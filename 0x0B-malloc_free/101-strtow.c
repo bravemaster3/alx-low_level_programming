@@ -80,6 +80,9 @@ char **strtow(char *str)
 		spl[i] = malloc(sizeof(char) * (len_word_i + 1));
 		if (spl[i] == NULL)
 		{
+			for (j = 0; j < i; j++)
+				free(spl[j]);
+			free(spl);
 			free(starts);
 			free(ends);
 			return (NULL);
