@@ -33,8 +33,8 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	starts = malloc(sizeof(int) * len);
-	ends = malloc(sizeof(int) * len);
+	starts = malloc(sizeof(int) * (len / 2));
+	ends = malloc(sizeof(int) * (len / 2));
 	while (str[i] != '\0')
 	{
 		if (str[i] != ' ')
