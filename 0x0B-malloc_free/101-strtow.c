@@ -65,6 +65,8 @@ char **strtow(char *str)
 		ends[index_e] = len - 1;
 		nwords += 1;
 	}
+	if (nwords == 0)
+		return (NULL);
 	spl = malloc(sizeof(char *) * (nwords + 1));
 	if (spl == NULL)
 		free(spl);
