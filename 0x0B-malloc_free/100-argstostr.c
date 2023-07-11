@@ -59,6 +59,6 @@ char *argstostr(int ac, char **av)
 		str[len_i] = '\n';
 		len_i += 1;
 	}
-	str[len - 2] = '\0';
+	str[len - 1] = '\n';
 	return (str);
 }
