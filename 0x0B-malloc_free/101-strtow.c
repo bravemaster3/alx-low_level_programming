@@ -19,6 +19,77 @@ int _strlen_recursion(char *s)
 }
 
 /**
+ * wordcount - counts the number of words sep by space in a string
+ * @str: pointer to the string
+ * Return: wordcount as integer
+ */
+
+int wordcount(char *str)
+{
+	int i = 0, isword = 2, nwords = 0;
+	int len = _strlen_recursion(str);
+
+	while (str[i] != '\0')
+	{
+		if (str[i] != ' ')
+		{
+			isword = 1;
+		}
+		if (str[i] == ' ')
+		{
+			if (isword == 1)
+				nwords += 1;
+			isword = 0;
+		}
+		i++;
+	}
+	if (str[len - 1] != ' ')
+		nwords += 1;
+	return (nwords);
+}
+
+/**
+ * wordstartend - identifies start and end of words
+ * @str: pointer to string
+ * Return: the pointer to a 2D array with row0 start and row1 end
+ */
+
+int **wordstartend(char *str)
+{
+	int i = 0, nwords = 0, index_s = 0, index_e = 0;
+	int len = _strlen_recursion(str);
+	int **st_en;
+
+	nwords = wordcount(str);
+	st_en = malloc(sizeof(int *) * 2);
+	if (st_en == NULL)
+		return (NULL);
+	st_en[0] = malloc(sizeof(int) * nwords);
+	if (st_en[0] == NULL)
+		return (NULL);
+	st_en[1] = malloc(sizeof(int) * nwords);
+	if (st_en[1] == NULL)
+		return (NULL);
+	while (str[i] != '\0')
+	{
+		if (str[i] != ' ' && ((i > 0 && str[i - 1] == ' ') || (i == 0)))
+		{
+			st_en[0][index_s] = i;
+			index_s += 1;
+		}
+
+		if (str[i] == ' ' && i > 0 && str[i - 1] != ' ')
+		{
+			st_en[1][index_e] = i - 1;
+			index_e += 1;
+		}
+		i++;
+	}
+	if (str[len - 1] != ' ')
+		st_en[1][index_e] = len - 1;
+	return (st_en);
+}
+/**
  * strtow - splits string into array of words
  * @str: pointer to the string
  * Return: the pointer to the array of words
@@ -28,49 +99,17 @@ char **strtow(char *str)
 {
 	char **spl;
 	int *starts, *ends;
-	int i = 0, j, k, len = _strlen_recursion(str), nwords = 0, isword = 2;
-	int index_s = 0, index_e = 0, len_word_i = 0;
+	int i = 0, j, k, nwords = 0, len_word_i = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	starts = malloc(sizeof(int) * (len / 2));
-	ends = malloc(sizeof(int) * (len / 2));
-	while (str[i] != '\0')
-	{
-		if (str[i] != ' ')
-		{
-			if ((i > 0 && str[i - 1] == ' ') || (i == 0 && str[i] != ' '))
-			{
-				starts[index_s] = i;
-				index_s += 1;
-			}
-			isword = 1;
-			i++;
-		}
-		if (str[i] == ' ')
-		{
-			if (i > 0 && str[i - 1] != ' ')
-			{
-				ends[index_e] = i - 1;
-				index_e += 1;
-			}
-			if (isword == 1)
-				nwords += 1;
-			isword = 0;
-			i++;
-		}
-	}
-	if (str[len - 1] != ' ')
-	{
-		ends[index_e] = len - 1;
-		nwords += 1;
-	}
+	nwords = wordcount(str);
 	if (nwords == 0)
-	{
-		free(starts);
-		free(ends);
 		return (NULL);
-	}
+	starts = malloc(sizeof(int) * nwords);
+	ends = malloc(sizeof(int) * nwords);
+	starts = wordstartend(str)[0];
+	ends = wordstartend(str)[1];
 	spl = malloc(sizeof(char *) * (nwords + 1));
 	if (spl == NULL)
 		free(spl);
