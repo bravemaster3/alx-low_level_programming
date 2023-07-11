@@ -106,8 +106,6 @@ char **strtow(char *str)
 	nwords = wordcount(str);
 	if (nwords == 0)
 		return (NULL);
-	starts = malloc(sizeof(int) * nwords);
-	ends = malloc(sizeof(int) * nwords);
 	starts = wordstartend(str)[0];
 	ends = wordstartend(str)[1];
 	spl = malloc(sizeof(char *) * (nwords + 1));
