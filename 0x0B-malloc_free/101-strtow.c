@@ -77,12 +77,8 @@ char **strtow(char *str)
 		for (j = starts[i], k = 0; j <= ends[i]; j++, k++)
 		{
 			spl[i][k] = str[j];
-			printf("char at i=%d AND j=%d is: %c\n", i, j, spl[i][k]);
 		}
-
-		printf("current i = %d and k = %d\n", i, k);
 		spl[i][k] = '\0';
-		printf("char at the end of line is:%c\n", spl[i][k]);
 	}
 	free(starts);
 	free(ends);
