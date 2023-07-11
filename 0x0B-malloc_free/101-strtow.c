@@ -67,7 +67,7 @@ char **strtow(char *str)
 	}
 	if (nwords == 0)
 		return (NULL);
-	spl = malloc(sizeof(char) * (nwords));
+	spl = malloc(sizeof(char) * (nwords + 1));
 	if (spl == NULL)
 		free(spl);
 	for (i = 0; i < nwords; i++)
