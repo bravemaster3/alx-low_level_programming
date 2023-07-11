@@ -66,8 +66,12 @@ char **strtow(char *str)
 		nwords += 1;
 	}
 	if (nwords == 0)
+	{
+		free(starts);
+		free(ends);
 		return (NULL);
-	spl = malloc(sizeof(char *) * (nwords - 1));
+	}
+	spl = malloc(sizeof(char *) * (nwords + 1));
 	if (spl == NULL)
 		free(spl);
 	for (i = 0; i < nwords; i++)
@@ -75,7 +79,11 @@ char **strtow(char *str)
 		len_word_i = ends[i] - starts[i];
 		spl[i] = malloc(sizeof(char) * (len_word_i + 1));
 		if (spl[i] == NULL)
+		{
+			free(starts);
+			free(ends);
 			return (NULL);
+		}
 		for (j = starts[i], k = 0; j <= ends[i]; j++, k++)
 		{
 			spl[i][k] = str[j];
