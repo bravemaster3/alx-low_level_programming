@@ -21,7 +21,7 @@ int **alloc_grid(int width, int height)
 		i = 0;
 		while (++i <= height)
 		{
-			free(arr_2D[i]);
+			free(*(arr_2D + i));
 		}
 		return (NULL);
 	}
