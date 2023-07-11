@@ -40,7 +40,7 @@ char *argstostr(int ac, char **av)
 		len = len + _strlen_recursion(av[i]);
 	}
 
-	len = len + ac;
+	len = len + ac + 1;
 
 	str = malloc(sizeof(char) * len);
 
