@@ -98,7 +98,7 @@ int **wordstartend(char *str)
 char **strtow(char *str)
 {
 	char **spl;
-	int *starts, *ends;
+	int **st_en;
 	int i = 0, j, k, nwords = 0, len_word_i = 0;
 
 	if (str == NULL || *str == '\0')
@@ -106,32 +106,33 @@ char **strtow(char *str)
 	nwords = wordcount(str);
 	if (nwords == 0)
 		return (NULL);
-	starts = wordstartend(str)[0];
-	ends = wordstartend(str)[1];
+	st_en = wordstartend(str);
 	spl = malloc(sizeof(char *) * (nwords + 1));
 	if (spl == NULL)
 		free(spl);
 	for (i = 0; i < nwords; i++)
 	{
-		len_word_i = ends[i] - starts[i];
+		len_word_i = st_en[1][i] - st_en[0][i];
 		spl[i] = malloc(sizeof(char) * (len_word_i + 1));
 		if (spl[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
 				free(spl[j]);
 			free(spl);
-			free(starts);
-			free(ends);
+			free(st_en[0]);
+			free(st_en[1]);
+			free(st_en);
 			return (NULL);
 		}
-		for (j = starts[i], k = 0; j <= ends[i]; j++, k++)
+		for (j = st_en[0][i], k = 0; j <= st_en[1][i]; j++, k++)
 		{
 			spl[i][k] = str[j];
 		}
 		spl[i][k] = '\0';
 	}
 	spl[nwords] = NULL;
-	free(starts);
-	free(ends);
+	free(st_en[0]);
+	free(st_en[1]);
+	free(st_en);
 	return (spl);
 }
