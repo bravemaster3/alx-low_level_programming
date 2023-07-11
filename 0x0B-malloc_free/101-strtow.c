@@ -73,7 +73,7 @@ char **strtow(char *str)
 	for (i = 0; i < nwords; i++)
 	{
 		len_word_i = ends[i] - starts[i] + 1;
-		spl[i] = malloc(sizeof(char) * (len_word_i - 1));
+		spl[i] = malloc(sizeof(char) * (len_word_i + 1));
 		if (spl[i] == NULL)
 			return (NULL);
 		for (j = starts[i], k = 0; j <= ends[i]; j++, k++)
