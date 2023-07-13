@@ -4,23 +4,23 @@
 #include "main.h"
 
 /**
- * _strcpy - copies string pointed to by src to another variable
- * @dest: pointer var to a buffer where to copy the string
- * @src: pointer var to the source of the string to be copied
- * Return: the pointer to dest i.e. the address
+ * _memset - fills memory with a given byte
+ * @s: a pointer
+ * @b: a character/byte element
+ * @n: an integer giving the number of bytes to fill
+ * Return: pointer to the first byte...
  */
 
-char *_strcpy(char *dest, char *src)
+char *_memset(char *s, char b, unsigned int n)
 {
-	int i = 0;
+	unsigned int i;
 
-	while (src[i] != '\0')
+	for (i = 0; i < n; i++)
 	{
-		dest[i] = src[i];
-		i++;
+		*(s + i) = b;
 	}
-	dest[i] = '\0';
-	return (dest);
+
+	return (s);
 }
 
 /**
@@ -42,7 +42,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	for (i = 0; i <= nmemb * size; i++)
-		_strcpy((char *)mem + i, "0");
+		_memset((char *)mem, 0, nmemb * size / sizeof(int));
 
-	return ((void *)mem);
+	return (mem);
 }
