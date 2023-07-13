@@ -11,7 +11,7 @@
  * Return: pointer to the first byte...
  */
 
-char *_memset(char *s, char b, unsigned int n)
+char *_set_zero(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
@@ -42,7 +42,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	for (i = 0; i <= nmemb * size; i++)
-		_memset((char *)mem, 0, nmemb * size / sizeof(int));
+		_set_zero((char *)mem, 0, nmemb * size / sizeof(int));
 
 	return ((void *)mem);
 }
