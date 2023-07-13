@@ -44,5 +44,5 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	for (i = 0; i <= nmemb * size; i++)
 		_memset((char *)mem, 0, nmemb * size / sizeof(int));
 
-	return (mem);
+	return ((void *)mem);
 }
