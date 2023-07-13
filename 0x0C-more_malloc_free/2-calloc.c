@@ -4,7 +4,7 @@
 #include "main.h"
 
 /**
- * _memset - fills memory with a given byte
+ * _set_zero - fills memory with a given byte
  * @s: a pointer
  * @b: a character/byte element
  * @n: an integer giving the number of bytes to fill
