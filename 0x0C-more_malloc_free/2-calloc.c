@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 
-#include "main.h"
-
 /**
  * _set_zero - fills memory with a given byte
  * @s: a pointer
