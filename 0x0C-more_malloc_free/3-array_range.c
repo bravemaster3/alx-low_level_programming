@@ -23,6 +23,7 @@ int *array_range(int min, int max)
 	arr = malloc(n * sizeof(*arr));
 	if (arr == NULL)
 		return (NULL);
+
 	for (i = 0, j = min; i < n; i++, j++)
 		arr[i] = j;
 	return (arr);
