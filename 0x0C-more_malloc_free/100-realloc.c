@@ -29,10 +29,13 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	if (new_size < old_size)
-		strncpy(nptr, ptr, new_size);
-	if (new_size > old_size)
-		strncpy(nptr, ptr, old_size);
+	if (ptr != NULL)
+	{
+		if (new_size < old_size)
+			strncpy(nptr, ptr, new_size);
+		if (new_size > old_size)
+			strncpy(nptr, ptr, old_size);
+	}
 	free(ptr);
 	return (nptr);
 }
