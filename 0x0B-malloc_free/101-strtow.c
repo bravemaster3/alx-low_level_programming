@@ -99,7 +99,7 @@ char **strtow(char *str)
 {
 	char **spl;
 	int **st_en;
-	int i = 0, j, k, nwords = 0, len_word_i = 0;
+	int i = 0, j = 0, k = 0, nwords = 0, len_word_i = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
