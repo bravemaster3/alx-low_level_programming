@@ -2,6 +2,8 @@
 #include <stdio.h>
 /**
  * main - entry point
+ * @argc: argument count
+ * @argv: double pointer to the array of arguments
  * Return: No return
  */
 
@@ -24,7 +26,7 @@ void main(int argc, char **argv)
 
 	for (i = atoi(argv[1]) - 1; i >= 0; i--)
 	{
-		printf("%x", ptr[i]);
+		printf("%02x", ptr[i]);
 		if (i == atoi(argv[1] - 1))
 			printf("\n");
 		else
