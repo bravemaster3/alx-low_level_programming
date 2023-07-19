@@ -24,10 +24,10 @@ void main(int argc, char **argv)
 		exit(2);
 	}
 
-	for (i = atoi(argv[1]) - 1; i >= 0; i--)
+	for (i = 0; i < atoi(argv[1]); i++)
 	{
 		printf("%02x", ptr[i] & 0xff);
-		if (i == atoi(argv[1] - 1))
+		if (i == (atoi(argv[1]) - 1))
 			printf("\n");
 		else
 			printf(" ");
