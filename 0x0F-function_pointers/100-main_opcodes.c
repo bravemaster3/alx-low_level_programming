@@ -11,7 +11,7 @@ void main(int argc, char **argv)
 {
 	int i;
 	void (*main_p)(int, char **) = &main;
-	char *ptr = (char *)main_p;
+	unsigned int *ptr = (unsigned int *)main_p;
 
 	if (argc != 2)
 	{
@@ -26,7 +26,7 @@ void main(int argc, char **argv)
 
 	for (i = atoi(argv[1]) - 1; i >= 0; i--)
 	{
-		printf("%02x", ptr[i]);
+		printf("%02x", ptr[i] & 0xff);
 		if (i == atoi(argv[1] - 1))
 			printf("\n");
 		else
