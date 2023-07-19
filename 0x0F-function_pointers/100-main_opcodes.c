@@ -4,13 +4,13 @@
  * main - entry point
  * @argc: argument count
  * @argv: double pointer to the array of arguments
- * Return: No return
+ * Return: 0 on success
  */
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int i;
-	void (*main_p)(int, char **) = &main;
+	int (*main_p)(int, char **) = &main;
 	char *ptr = (char *)main_p;
 
 	if (argc != 2)
@@ -32,4 +32,5 @@ void main(int argc, char **argv)
 		else
 			printf(" ");
 	}
+	return (0);
 }
