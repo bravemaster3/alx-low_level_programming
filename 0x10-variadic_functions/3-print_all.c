@@ -6,7 +6,7 @@
 void print_all(const char *const format, ...)
 {
 	unsigned int i = 0, j;
-	char array[] = "cifs", str_print[3] = "%?";
+	char array[] = "cifs", str_print[3] = "%?", *str;
 	va_list all;
 
 	va_start(all, format);
@@ -30,7 +30,10 @@ void print_all(const char *const format, ...)
 					printf(str_print, va_arg(all, double));
 					break;
 				case 's':
-					printf(str_print, va_arg(all, char *));
+					str = va_arg(all, char *);
+					if (str == NULL)
+						str = "(nil)";
+					printf(str_print, str);
 					break;
 				}
 				(i < 3) ? printf(", ") : 0;
