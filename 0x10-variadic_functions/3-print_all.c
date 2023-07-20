@@ -1,25 +1,24 @@
 #include "variadic_functions.h"
-
 /**
  * print_all - prints all given types and variadic arguments
  * @format: format specifier(s)
  */
 void print_all(const char *const format, ...)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, j;
 	char array[] = "cifs", str_print[3] = "%", *str;
 	va_list all;
 
 	va_start(all, format);
-	while (format && format[i])
+	while (*(format + i) != '\0')
 	{
-		unsigned int j = 0;
-		while (array[j])
+		j = 0;
+		while (j <= 3)
 		{
-			if (format[i] == array[j])
+			if (*(format + i) == array[j])
 			{
-				str_print[1] = format[i];
-				switch (format[i])
+				str_print[1] = *(format + i);
+				switch (*(format + i))
 				{
 				case 'c':
 					printf(str_print, va_arg(all, int));
@@ -37,9 +36,7 @@ void print_all(const char *const format, ...)
 					printf(str_print, str);
 					break;
 				}
-				if (format[i + 1])
-					printf(", ");
-				break;
+				(i < 3) ? printf(", ") : 0;
 			}
 			j++;
 		}
