@@ -33,8 +33,7 @@ void print_all(const char *const format, ...)
 					printf(str_print, va_arg(all, char *));
 					break;
 				}
-				if (i < 3)
-					printf(", ");
+				(i < 3) ? printf(", ") : 0;
 			}
 			j++;
 		}
