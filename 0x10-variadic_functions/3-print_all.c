@@ -6,11 +6,11 @@
 void print_all(const char *const format, ...)
 {
 	unsigned int i = 0, j;
-	char array[] = "cifs", str_print[3] = "%?", *str;
+	char array[] = "cifs", str_print[3] = "%", *str;
 	va_list all;
 
 	va_start(all, format);
-	while (*(format + i) != '\n')
+	while (*(format + i) != '\0')
 	{
 		j = 0;
 		while (j <= 3)
