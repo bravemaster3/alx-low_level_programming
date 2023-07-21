@@ -5,41 +5,37 @@
  */
 void print_all(const char *const format, ...)
 {
-	unsigned int i = 0, j;
-	char array[] = "cifs", str_print[3] = "%", *str;
+	unsigned int i = 0;
+	char str_print[3] = "%", *str;
 	va_list all;
 
 	va_start(all, format);
-	while (*(format + i) != '\0')
+	while (format != NULL && *(format + i) != '\0')
 	{
-		j = 0;
-		while (j <= 3)
+		str_print[1] = *(format + i);
+		switch (*(format + i))
 		{
-			if (*(format + i) == array[j])
-			{
-				str_print[1] = *(format + i);
-				switch (*(format + i))
-				{
-				case 'c':
-					printf(str_print, va_arg(all, int));
-					break;
-				case 'i':
-					printf(str_print, va_arg(all, int));
-					break;
-				case 'f':
-					printf(str_print, va_arg(all, double));
-					break;
-				case 's':
-					str = va_arg(all, char *);
-					if (str == NULL)
-						str = "(nil)";
-					printf(str_print, str);
-					break;
-				}
-				(i < 3) ? printf(", ") : 0;
-			}
-			j++;
+		case 'c':
+			printf(str_print, va_arg(all, int));
+			break;
+		case 'i':
+			printf(str_print, va_arg(all, int));
+			break;
+		case 'f':
+			printf(str_print, va_arg(all, double));
+			break;
+		case 's':
+			str = va_arg(all, char *);
+			if (str == NULL)
+				str = "(nil)";
+			printf(str_print, str);
+			break;
+		default:
+			i++;
+			continue;
 		}
+		if (format[i + 1] != '\0')
+			printf(", ");
 		i++;
 	}
 	va_end(all);
