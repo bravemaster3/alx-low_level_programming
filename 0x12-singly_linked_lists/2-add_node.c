@@ -5,7 +5,8 @@
 /**
  * add_node - add a node at beginning of a list_t list
  * @head: pointer to head or NULL on failure
- * @str: to
+ * @str: string to duplicate into the list_t->str
+ * Return: pointer to the head of the list
  */
 
 list_t *add_node(list_t **head, const char *str)
