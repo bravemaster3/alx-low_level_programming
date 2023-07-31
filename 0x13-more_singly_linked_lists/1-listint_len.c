@@ -5,7 +5,6 @@
  * @h: pointer to the first element of the list
  * Return: the length of the list
  */
-
 size_t listint_len(const listint_t *h)
 {
 	const listint_t *ptr = h;
