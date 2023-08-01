@@ -43,7 +43,7 @@ size_t print_listint_safe(const listint_t *head)
 		if (hasCycle && copy->next >= copy)
 		{
 			printf("-> [%p] %d\n", (void *)copy->next, copy->next->n);
-			exit(98);
+			break;
 		}
 
 		copy = copy->next;
