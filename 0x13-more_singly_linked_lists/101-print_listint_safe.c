@@ -35,6 +35,8 @@ size_t print_listint_safe(const listint_t *head)
 	size_t len = 0;
 	int hasCycle = list_cycle_detector(head);
 
+	if (head == NULL)
+		exit(98);
 	while (copy != NULL)
 	{
 		printf("[%p] %d\n", (void *)copy, copy->n);
@@ -49,5 +51,5 @@ size_t print_listint_safe(const listint_t *head)
 		copy = copy->next;
 	}
 
-	return len;
+	return (len);
 }
