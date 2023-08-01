@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * list_cycle_detector - catches any loops in an int list
+ * list_cycle_detector2 - catches any loops in an int list
  * @head: pointer to the first element of the list
  * Return: 0 if no loop was found, 1 if a loop was found
  */
