@@ -9,7 +9,7 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	const listint_t *slow = head, *fast = head;
+	listint_t *slow = head, *fast = head;
 
 	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
