@@ -13,7 +13,7 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	if (index >= bits)
 		return (-1);
-	for (i = bits - 1; i + 1 > 0; i--)
+	for (i = 0; i < bits; i++)
 	{
 		mask = 1UL << i;
 		if (i == index)
