@@ -39,13 +39,7 @@ int main(int argc, char *argv[])
 	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) > 0)
 	{
 		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) < 0)
-		{
-			/**
-			 * error_close(fd_from);
-			 * error_close(fd_to);
-			 */
 			error_from_to(argv[2], 1);
-		}
 	}
 	error_close(fd_from);
 	error_close(fd_to);
@@ -73,7 +67,11 @@ char *gen_err(char *filename, int type)
 		str = malloc(sizeof(char) * (strlen(WRITE_ERR) + len + 2));
 	if (str == NULL)
 		return (NULL);
-	strcpy(str, FROM_ERR);
+
+	if (type == 0)
+		strcpy(str, FROM_ERR);
+	if (type == 1)
+		strcpy(str, WRITE_ERR);
 	strcat(str, filename);
 	strcat(str, "\n");
 	return (str);
