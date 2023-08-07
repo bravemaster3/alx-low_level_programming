@@ -38,11 +38,11 @@ int main(int argc, char *argv[])
 	}
 	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) != -1)
 	{
-		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) >= 0)
+		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) > 0)
 		{
-			error_from_to(argv[2], 1);
 			error_close(fd_from);
 			error_close(fd_to);
+			error_from_to(argv[2], 1);
 		}
 	}
 	error_close(fd_from);
