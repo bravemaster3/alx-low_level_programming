@@ -22,6 +22,10 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	check_wr = write(filedescr, text_content, strlen(text_content));
 	if (check_wr == -1)
+	{
+		close(filedescr);
 		return (-1);
+	}
+	close(filedescr);
 	return (1);
 }
