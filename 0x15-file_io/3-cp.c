@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		fd_to = open(argv[2], O_WRONLY | O_TRUNC);
 		if (fd_to == -1)
 		{
-			/*error_close(fd_from); NOT SURE*/
+			error_close(fd_from); /* IMPORTANT*/
 			error_from_to(argv[2], 1);
 		}
 	}
@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
 	{
 		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) == -1)
 		{
-			error_from_to(argv[2], 1);
 			error_close(fd_from);
 			error_close(fd_to);
+			error_from_to(argv[2], 1);
 		}
 	}
 	close(fd_from);
