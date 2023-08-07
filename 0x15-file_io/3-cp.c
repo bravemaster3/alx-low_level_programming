@@ -32,13 +32,13 @@ int main(int argc, char *argv[])
 		fd_to = open(argv[2], O_WRONLY | O_TRUNC);
 		if (fd_to == -1)
 		{
-			error_close(fd_from); /*NOT SURE*/
+			/*error_close(fd_from); NOT SURE*/
 			error_from_to(argv[2], 1);
 		}
 	}
-	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) > 0)
+	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) != -1)
 	{
-		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) < 0)
+		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) == -1)
 		{
 			error_from_to(argv[2], 1);
 			error_close(fd_from);
