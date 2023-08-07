@@ -107,9 +107,7 @@ void error_close(int filedescr)
 	check = close(filedescr);
 	if (check == -1)
 	{
-		write(STDOUT_FILENO, CLOSE_ERR, strlen(CLOSE_ERR));
-		write(STDOUT_FILENO, &filedescr, sizeof(filedescr));
-		write(STDOUT_FILENO, "\n", 1);
+		dprintf(STDERR_FILENO, CLOSE_ERR "%d\n", filedescr);
 		exit(100);
 	}
 }
