@@ -12,7 +12,7 @@ void error_close(int filedescr);
 #define USAGE_ERR "Usage : cp file_from file_to\n"
 #define FROM_ERR "Error: Can't read from file "
 #define WRITE_ERR "Error: Can't write to "
-#define CLOSE_ERR "Error: Can't close "
+#define CLOSE_ERR "Error: Can't close fd "
 #define BUFF_SIZE 1024
 
 #endif /* MAIN_H */
