@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 			error_from_to(argv[2], 1);
 		}
 	}
-	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) != -1)
+	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) > 0)
 	{
 		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) > 0)
 		{
