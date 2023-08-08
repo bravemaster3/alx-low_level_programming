@@ -1,13 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdint.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/mman.h>
 
 /**
  * print_error - prints error
@@ -46,7 +37,7 @@ void print_elf_header(const Elf64_Ehdr *header)
  * main - entry point
  * @argc: argument count
  * @argv: pointer to argument strings
- * Return: 0
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
