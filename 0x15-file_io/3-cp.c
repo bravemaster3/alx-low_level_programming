@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
 	}
 	if (byt_rd == -1)
 		error_from_to(argv[1], 0);
+	if (byt_wr == -1)
+		error_from_to(argv[2], 1);
 	error_close(fd_from);
 	error_close(fd_to);
 	return (0);
