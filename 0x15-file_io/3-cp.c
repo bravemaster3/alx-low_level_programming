@@ -51,37 +51,6 @@ int main(int argc, char *argv[])
 }
 
 /**
- * gen_err - generates error message
- * @filename: filename string
- * @type: 0 for from, 1 for to, 2 for write
- * Return: pointer to the buffer where the error message is stored.
- * Needs to be free'd.
- */
-char *gen_err(char *filename, int type)
-{
-	char *str;
-	int len;
-
-	if (filename == NULL)
-		return (NULL);
-	len = strlen(filename);
-	if (type == 0)
-		str = malloc(sizeof(char) * (strlen(FROM_ERR) + len + 2));
-	if (type == 1)
-		str = malloc(sizeof(char) * (strlen(WRITE_ERR) + len + 2));
-	if (str == NULL)
-		return (NULL);
-
-	if (type == 0)
-		strcpy(str, FROM_ERR);
-	if (type == 1)
-		strcpy(str, WRITE_ERR);
-	strcat(str, filename);
-	strcat(str, "\n");
-	return (str);
-}
-
-/**
  * error_from_to - prints dynamic error to stderr
  * @filename: filename string
  * @type: 0 for from, 1 for for to/ write
