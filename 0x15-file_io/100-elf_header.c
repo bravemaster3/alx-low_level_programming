@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -8,32 +9,20 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
-#define ELF_MAGIC_SIZE 4
-
-typedef struct
-{
-	uint8_t e_ident[ELF_MAGIC_SIZE];
-	uint16_t e_type;
-	uint16_t e_machine;
-	uint32_t e_version;
-	uint64_t e_entry;
-	uint64_t e_phoff;
-	uint64_t e_shoff;
-	uint32_t e_flags;
-	uint16_t e_ehsize;
-	uint16_t e_phentsize;
-	uint16_t e_phnum;
-	uint16_t e_shentsize;
-	uint16_t e_shnum;
-	uint16_t e_shstrndx;
-} Elf64_Ehdr;
-
+/**
+ * print_error - prints error
+ * @msg: error message
+ */
 void print_error(const char *msg)
 {
 	fprintf(stderr, "Error: %s\n", msg);
 	exit(98);
 }
 
+/**
+ * print_elf_header - prints elf header
+ * @header: the header
+ */
 void print_elf_header(const Elf64_Ehdr *header)
 {
 	int i;
@@ -44,7 +33,8 @@ void print_elf_header(const Elf64_Ehdr *header)
 		printf("%02x ", header->e_ident[i]);
 	}
 	printf("\nClass: %d-bit\n", header->e_ident[4] == 1 ? 32 : 64);
-	printf("Data: %s\n", header->e_ident[5] == 1 ? "Little Endian" : "Big Endian");
+	printf("Data: %s\n", header->e_ident[5] == 1 ? "Little" : "Big");
+	printf("Endian\n");
 	printf("Version: %d\n", header->e_ident[6]);
 	printf("OS/ABI: %d\n", header->e_ident[7]);
 	printf("ABI Version: %d\n", header->e_ident[8]);
@@ -52,6 +42,12 @@ void print_elf_header(const Elf64_Ehdr *header)
 	printf("Entry point address: 0x%lx\n", (unsigned long)header->e_entry);
 }
 
+/**
+ * main - entry point
+ * @argc: argument count
+ * @argv: pointer to argument strings
+ * Return: 0
+ */
 int main(int argc, char *argv[])
 {
 	int fd;
@@ -87,5 +83,5 @@ int main(int argc, char *argv[])
 	print_elf_header(&header);
 
 	close(fd);
-	return 0;
+	return (0);
 }

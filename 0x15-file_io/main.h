@@ -14,4 +14,24 @@ void error_close(int filedescr);
 #define CLOSE_ERR "Error: Can't close fd "
 #define BUFF_SIZE 1024
 
+#define ELF_MAGIC_SIZE 4
+
+typedef struct
+{
+    uint8_t e_ident[ELF_MAGIC_SIZE];
+    uint16_t e_type;
+    uint16_t e_machine;
+    uint32_t e_version;
+    uint64_t e_entry;
+    uint64_t e_phoff;
+    uint64_t e_shoff;
+    uint32_t e_flags;
+    uint16_t e_ehsize;
+    uint16_t e_phentsize;
+    uint16_t e_phnum;
+    uint16_t e_shentsize;
+    uint16_t e_shnum;
+    uint16_t e_shstrndx;
+} Elf64_Ehdr;
+
 #endif /* MAIN_H */
