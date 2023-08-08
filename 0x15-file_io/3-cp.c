@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		fd_to = open(argv[2], O_WRONLY | O_TRUNC);
 		if (fd_to == -1)
 		{
-			/*error_close(fd_from); IMPORTANT*/
+			error_close(fd_from); /*IMPORTANT*/
 			error_from_to(argv[2], 1);
 		}
 	}
@@ -45,8 +45,6 @@ int main(int argc, char *argv[])
 	}
 	if (byt_rd == -1)
 		error_from_to(argv[1], 0);
-	if (byt_wr == -1)
-		error_from_to(argv[2], 1);
 	error_close(fd_from);
 	error_close(fd_to);
 	return (0);
