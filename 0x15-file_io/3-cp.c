@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, USAGE_ERR, strlen(USAGE_ERR));
+		dprintf(STDERR_FILENO, USAGE_ERR);
 		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		fd_to = open(argv[2], O_WRONLY | O_TRUNC);
 		if (fd_to == -1)
 		{
-			error_close(fd_from); /*IMPORTANT*/
+			/* error_close(fd_from); IMPORTANT*/
 			error_from_to(argv[2], 1);
 		}
 	}
@@ -89,13 +89,12 @@ char *gen_err(char *filename, int type)
  */
 void error_from_to(char *filename, int type)
 {
-	char *str;
-
-	str = gen_err(filename, type);
-	write(STDERR_FILENO, str, strlen(str));
-	free(str);
 	if (type == 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
+	}
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 	exit(99);
 }
 
