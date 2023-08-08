@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
 	char buff[BUFF_SIZE];
-	ssize_t byt_rd;
+	ssize_t byt_rd, byt_wr;
 
 	if (argc != 3)
 	{
@@ -38,7 +38,9 @@ int main(int argc, char *argv[])
 	}
 	while ((byt_rd = read(fd_from, buff, BUFF_SIZE)) > 0)
 	{
-		if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) < 0)
+		/*if (dprintf(fd_to, "%.*s", (int)byt_rd, buff) < 0)*/
+		byt_wr = write(fd_to, buff, byt_rd);
+		if (byt_wr == -1)
 			error_from_to(argv[2], 1);
 	}
 	if (byt_rd == -1)
