@@ -21,6 +21,10 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	new->n = n;
 	if (*head == NULL)
 	{
+		*head = malloc(sizeof(dlistint_t));
+		if (*head == NULL)
+			return (NULL);
+
 		new->prev = NULL;
 		new->next = NULL;
 		*head = new;
