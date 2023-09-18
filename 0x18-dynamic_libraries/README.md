@@ -13,18 +13,18 @@ gcc -c -fPIC *.c
 2. Put all the object files together into one library, using -shared (for dynamic library) and -o to specify the output name
 
 ```bash
-gcc -shared -o liball.so *.o
+gcc -shared -o libdynamic.so *.o
 ```
 The previous steps should have created the library. You can check that everything was done well, and that the right functions were included as dynamic symbols using the following:
 
 ```bash
-nm -D liball.so
+nm -D libdynamic.so
 ```
 
 Or if you only want to see the functions that you defined,
 
 ```bash
-nm -D --defined-only liball.so
+nm -D --defined-only libdynamic.so
 ```
 
 ## Using the library
@@ -38,15 +38,16 @@ export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 4. Then, use it when compiling your program where you use those functions
 
 ```bash
-gcc -L . 0-main.c -l all -o example
+gcc -L . 0-main.c -l dynamic -o example
 ```
 
-Note that "all" is the name of the shared library in this case (liball.so)
+Note that "dynamic" is the name of the shared library in this case (libdynamic.so)
 
 5. Use in Python
 
 ```Python
 #!/usr/bin/python3
 import ctypes
-spam = ctypes.CDLL(‘./liball.so’)
+my_funcs = ctypes.CDLL("./libdynamic.so")
+print(my_funcs._abs(-10))
 ```
