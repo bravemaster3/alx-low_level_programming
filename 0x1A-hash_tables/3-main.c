@@ -23,8 +23,6 @@ int main(void)
 	i = hash_table_set(ht, "mentioner", "collides hetairas");
 	printf("mentioner ---- return = %d\n", i);
 
-	
-
 	i = hash_table_set(ht, NULL, "null key");
 	printf("NULL key ---- return = %d\n", i);
 
