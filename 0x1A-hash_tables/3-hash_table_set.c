@@ -21,6 +21,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	new_item->key = (char *)key;
 	new_item->next = NULL;
+	new_item->value = NULL;
 	if (value != NULL)
 		new_item->value = strdup(value);
 
