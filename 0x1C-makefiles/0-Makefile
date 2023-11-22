@@ -1,4 +1,4 @@
 #First makefile, with a single rule all
 
-all: main.c school.c m.h
+all: main.c school.c
 	gcc main.c school.c -o school
