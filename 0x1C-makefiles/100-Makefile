@@ -9,10 +9,9 @@ SRC = main.c school.c
 OBJ = $(SRC:%.c=%.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
-FLAGS = ${CFLAGS}
 # Rule for creating the executable from objects
 all: $(OBJ) m.h
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) ${CFLAGS} $(OBJ) -o $(NAME)
 
 # Rule for removing temporary Emacs and Vim files with executable
 clean:
