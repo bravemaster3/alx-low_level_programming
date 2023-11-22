@@ -1,8 +1,5 @@
-# Simple makefile, with rules and variables
-
+#Simple makefile, with rules and variables
 CC := gcc
-
 SRC := $(wildcard *.c)
-
 all: ${SRC}
 	${CC} ${SRC} -o school
