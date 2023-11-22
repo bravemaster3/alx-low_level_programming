@@ -1,0 +1,25 @@
+# A complete Makefile
+
+# Variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+# Rule for creating the executable from objects
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+# Rule for creating the object files individually
+%.o: %.c
+	$(CC) $(CFLAGS)	-c -o $@ $<
+# Rule for removing temporary Emacs and Vim files with executable
+clean:
+	$(RM) *~ $(NAME)
+# Rule for deleting the object files
+oclean:
+	$(RM) $(OBJ)
+# Rule for deleting all Emacs and Vim temp files, the executable and obj files
+fclean: clean oclean
+# Rule for forcing recompilation of all source files
+re: oclean all
