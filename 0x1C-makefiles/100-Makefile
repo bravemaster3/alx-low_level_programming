@@ -9,7 +9,6 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
-RM = rm -f
 # Rule for creating the executable from objects
 all: $(OBJ) m.h
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
