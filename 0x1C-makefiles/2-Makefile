@@ -1,0 +1,5 @@
+# First useful makefile
+
+CC = gcc
+SRC = 
+all:
