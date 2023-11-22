@@ -9,22 +9,21 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
-RM = RM
 # Rule for creating the executable from objects
 all: $(OBJ) m.h
 	$(CC) $(OBJ) -o $(NAME)
 # Rule for creating the object files individually without using %.o: %.c
 main.o: main.c
-	${CC} $(CFLAGS)	-c -o $@ $<
+	gcc $(CFLAGS)	-c -o $@ $<
 school.o: school.c
-	${CC} $(CFLAGS)	-c -o $@ $<
+	gcc $(CFLAGS)	-c -o $@ $<
 
 # Rule for removing temporary Emacs and Vim files with executable
 clean:
 	$(RM) *~ $(NAME)
 # Rule for deleting the object files
 oclean:
-	${RM} $(OBJ)
+	rm -f $(OBJ)
 # Rule for deleting all Emacs and Vim temp files, the executable and obj files
 fclean: clean oclean
 # Rule for forcing recompilation of all source files
