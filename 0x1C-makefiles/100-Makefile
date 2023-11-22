@@ -11,7 +11,7 @@ NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 # Rule for creating the executable from objects
 all: $(OBJ) m.h
-	$(CC) -Wall -Werror -Wextra -pedantic $(OBJ) -o $(NAME)
+	$(CC) ${CFLAGS} $(OBJ) -o $(NAME)
 
 # Rule for removing temporary Emacs and Vim files with executable
 clean:
