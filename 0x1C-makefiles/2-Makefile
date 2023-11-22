@@ -1,12 +1,15 @@
 # First useful makefile
 
+# Variables
 CC = gcc
 SRC = main.c school.c
 OBJ = $(SRC:%.c=%.o)
 NAME = school
 
+# Rule for creating the executable from objects
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+# Rule for creating the object files individually
 %.o: %.c
 	$(CC)	-c -o $@ $<
